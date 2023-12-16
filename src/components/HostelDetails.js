@@ -31,6 +31,7 @@ const HostelDetails = ({ hostel }) => {
         <>
           <h2>{hostel.name}</h2>
           <p>{hostel.postcode}</p>
+          <p>Cafe Bar Parking Bike Shelter</p>
           <p>{hostel.description}</p> 
           <div>
             {Array.from({ length: 5 }).map((_, index) => (

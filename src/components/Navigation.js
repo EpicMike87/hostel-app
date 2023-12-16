@@ -6,16 +6,16 @@ const Navigation = () => {
         <>
             <nav>
                 <Link to="/" className="nav-button">
-                    Map
+                    View Hostel Map
                 </Link>
                 <Link to="search" className="nav-button">
-                    Search
+                    Find Hostel
                 </Link>
                 <Link to="Review" className="nav-button">
-                    Review
+                    Review a Hostel
                 </Link>
                 <Link to="Plan" className="nav-button">
-                    Plan
+                    Plan your Trip
                 </Link>
             </nav>   
             <Outlet />  
