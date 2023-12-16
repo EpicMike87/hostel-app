@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import HostelDetails from './HostelDetails';
 import Search from './Search';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Accordion, Row, Col } from 'react-bootstrap';
 import { fetchHostelData } from '../services/FetchHostelData';
 
 const ListHostels = () => {
@@ -30,19 +32,23 @@ const ListHostels = () => {
   });
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-8">
-          <Search
-            hostels={hostels}
-            onSearch={(searchResults) => setHostels(searchResults)}
-            onSearchFieldChange={(value) => setSearchField(value)}
-          />
-        </div>
-        <div className="col-md-4">
-          <div>Placeholder text for the right column</div>
-        </div>
-      </div>
+    <div>
+      <Search
+        hostels={hostels}
+        onSearch={(searchResults) => setHostels(searchResults)}
+        onSearchFieldChange={(value) => setSearchField(value)}
+      />
+      <Row>
+        {filteredHostels.map((hostel) => (
+          <Col key={hostel.id} xs={12} md={6}>
+            <Accordion>
+              <Accordion.Item eventKey={hostel.id}>
+                <HostelDetails hostel={hostel} />
+              </Accordion.Item>
+            </Accordion>
+          </Col>
+        ))}
+      </Row>
     </div>
   );
 };
