@@ -1,10 +1,18 @@
 import React from "react";
-// import { Link, Outlet } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const UserInfo= () => {
     return (
         <div className = "user-info-section">
-        <p>Welcome Username</p>
+        Welcome Username
+        <div className = "account-buttons">
+        <Link to="/account" className="account-button">
+          Account
+        </Link>
+        <Link to="/loggedout" className="account-button">
+          Log Out
+        </Link>
+        </div>
         </div>
     )
 }

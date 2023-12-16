@@ -47,6 +47,19 @@ code {
   text-align: center;
 }
 
+.account-button {
+  display: inline-block;
+  font-weight: bold;
+  margin: 5px;
+  padding: 8px 15px;
+  background-color: #005EB8;
+  color: #FFFFFF;
+  text-decoration: none;
+  border: none;
+  border-radius: 3px;
+  margin-right: 8px;
+}
+
 .leaflet-popup-content {
   color: #000000;
   font-weight: bold;
