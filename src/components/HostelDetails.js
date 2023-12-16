@@ -1,23 +1,40 @@
 import React from "react";
+import Star from "./Star";
 
 const HostelDetails = ({ hostel }) => {
   const calculateAverageRating = () => {
     if (hostel && hostel.ratings && hostel.ratings.length > 0) {
-      const totalRating = hostel.ratings.reduce(
-        (acc, rating) => acc + rating, 0
-      );
-      return (totalRating / hostel.ratings.length).toFixed(1);
+      const sum = hostel.ratings.reduce((total, rating) => total + rating, 0);
+      const average = sum / hostel.ratings.length;
+      return Math.round(average);
     }
-    return "N/A";
-  }
+    return 0;
+  };
+
+  const averageRating = calculateAverageRating();
+
   return (
     <div style={{ width: "30%", padding: "20px" }}>
       {hostel && (
         <>
-          <h2>{hostel.name}</h2>
+          <h2>{hostel.name}</h2> <p>{hostel.postcode}</p>
           <p>{hostel.description}</p>
-          <p>{hostel.postcode}</p>
-          <p> {calculateAverageRating()}</p>
+          <div>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <Star
+                key={index}
+                selected={index < averageRating}
+              />
+            ))}
+            <div className="contact-section">
+              <button className="contact-button">
+                <img src="/icons/envelope-solid.svg" alt="Email Icon" style={{ width: "25px", margin: "5px" }} />
+              </button>
+              <button className="contact-button">
+                <img src="/icons/phone-solid.svg" alt="Phone Icon" style={{ width: "25px", margin: "5px" }} />
+              </button>
+          </div>
+          </div>
         </>
       )}
     </div>

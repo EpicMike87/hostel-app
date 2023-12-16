@@ -11,7 +11,7 @@ const Map = () => {
     iconSize: [30, 30],
   });
 
-  const initialPosition = [55.8639, -4.24919];
+  const initialPosition = [57.4639, -5.14919];
   const [hostelData, setHostelData] = useState([]);
   const [activeHostel, setActiveHostel] = useState(null);
 
@@ -60,7 +60,7 @@ const Map = () => {
             }}
           >
             <Popup>
-              <div className="popup" role="alert">
+              <div className="leaflet-popup-content" role="alert">
                 {hostel.name}. <br />
               </div>
             </Popup>

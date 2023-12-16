@@ -8,12 +8,7 @@ const Home = () => {
         <div className="container-fluid">
             <div className="row">
                 <div className="col">
-                    <h3>AlbaAdvenure</h3>
-                    <p>Welcome to AlbaAdvenure Hostels</p>
-
-                </div>
-                <div className="col">
-                    <h3>Hostel Maps</h3>
+                    <h3>Alba Adventures</h3>
                     <Map />
                 </div>
             </div>

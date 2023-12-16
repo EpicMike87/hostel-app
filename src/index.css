@@ -11,3 +11,54 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#heading {
+  text-align: center;
+  font-size: 20px;;
+  font-weight: bold;
+}
+
+#textBody{
+  vertical-align: baseline;
+  color: red;
+}
+
+.map {
+  height: 100vh;
+}
+
+.nav-button {
+  display: inline-block;
+  font-weight: bold;
+  margin: 10px;
+  padding: 8px 15px;
+  background-color: #388DCA;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 3px;
+  margin-right: 8px;
+  text-align: center;
+}
+
+.leaflet-popup-content {
+  color: #000000;
+  font-weight: bold;
+}
+
+.contact-section{
+  display: flex;
+  flex-direction: row;
+}
+
+.contact-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #005EB8;
+  color: #FFFFFF;
+  padding: 8px;
+  border-radius: 10px;
+  margin-top: 25px;
+  margin-right: 25px;
+}
