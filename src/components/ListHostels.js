@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HostelDetails from './HostelDetails';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Accordion } from 'react-bootstrap';
+import { Accordion, Row, Col } from 'react-bootstrap';
 import { fetchHostelData } from '../services/FetchHostelData';
 
 const ListHostels = () => {
@@ -25,13 +25,17 @@ const ListHostels = () => {
   }
 
   return (
-    <Accordion>
+    <Row>
       {hostels.map((hostel) => (
-        <Accordion.Item key={hostel.id} eventKey={hostel.id}>
-          <HostelDetails hostel={hostel} />
-        </Accordion.Item>
+        <Col key={hostel.id} xs={2} md={6}>
+          <Accordion>
+            <Accordion.Item eventKey={hostel.id}>
+              <HostelDetails hostel={hostel} />
+            </Accordion.Item>
+          </Accordion>
+        </Col>
       ))}
-    </Accordion>
+    </Row>
   );
 };
 

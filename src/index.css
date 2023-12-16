@@ -14,7 +14,7 @@ code {
 
 #heading {
   text-align: center;
-  font-size: 20px;;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -69,4 +69,26 @@ code {
   padding: 8px;
   border-radius: 5px;
   margin-top: 10px;
+}
+
+.hostel-panel{
+  margin: 5px;
+  min-height: 325px;
+}
+
+.hostel-title{
+  font-weight: bold;
+}
+
+.hostel-postcode{
+  padding: 1px;
+}
+
+.hostel-features{
+  display: flex;
+  flex-direction: row;
+}
+
+.feature-icons{
+  width: 25px;
 }

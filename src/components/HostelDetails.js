@@ -26,12 +26,51 @@ const HostelDetails = ({ hostel }) => {
   };
 
   return (
-    <div style={{ width: "30%", padding: "20px" }}>
+    <div >
       {hostel && (
         <>
-          <h2>{hostel.name}</h2>
-          <p>{hostel.postcode}</p>
-          <p>Cafe Bar Parking Bike Shelter</p>
+          <div className = "hostel-panel">
+          <div className = "hostel-title">{hostel.name}</div>
+          <div className = "hostel-postcode">{hostel.postcode}</div>
+          <div className = "hostel-features">
+          {/* Display icons if feature = true */}
+          {hostel.cafe && (
+            <div className = "feature-icons">
+              <img
+                src="/icons/mug-saucer-solid.svg"
+                alt="Cafe Icon"
+              />
+            </div>
+          )}
+
+          {hostel.pub && (
+            <div className = "feature-icons">
+              <img
+                src="/icons/beer-mug-empty-solid.svg"
+                alt="Pub Icon"
+              />
+            </div>
+          )}
+
+          {hostel.parking && (
+            <div className = "feature-icons">
+              <img
+                src="/icons/bicycle-solid.svg"
+                alt="Bicycle Icon"
+              />
+            </div>
+          )}
+
+          {hostel.parking && (
+             <div className = "feature-icons">
+              <img
+                src="/icons/square-parking-solid.svg"
+                alt="Parking Icon"
+              />
+            </div>
+          )}
+          </div>
+
           <p>{hostel.description}</p> 
           <div>
             {Array.from({ length: 5 }).map((_, index) => (
@@ -72,9 +111,11 @@ const HostelDetails = ({ hostel }) => {
               <p>Email: {hostel.email}</p>
             </div>
           )}
+          </div>
         </>
       )}
     </div>
+    
   );
 };
 
