@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import HostelDetails from "./HostelDetails";
 
-function Search({ hostels }) {
+function Search({ hostels, onHostelClick }) {
   const [searchField, setSearchField] = useState("");
 
   const filteredHostels = hostels.filter((hostel) => {
@@ -24,7 +24,13 @@ function Search({ hostels }) {
       </div>
       <div>
         {filteredHostels.map((hostel) => (
-          <HostelDetails key={hostel.id} hostel={hostel} />
+          <div
+            key={hostel.id}
+            onClick={() => onHostelClick(hostel)}
+            style={{ cursor: "pointer" }}
+          >
+            <HostelDetails hostel={hostel} />
+          </div>
         ))}
       </div>
     </div>

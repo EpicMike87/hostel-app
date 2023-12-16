@@ -12,6 +12,8 @@ const ListHostels = () => {
   const [showParking, setShowParking] = useState(false);
   const [showBicycleStorage, setShowBicycleStorage] = useState(false);
 
+  const [selectedHostel, setSelectedHostel] = useState(null);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -38,6 +40,11 @@ const ListHostels = () => {
 
   const filteredHostels = applyFilters();
 
+  const handleHostelClick = (hostel) => {
+    console.log("Hostel clicked:", hostel);
+    setSelectedHostel(hostel);
+  };
+
   return (
     <div className="row">
       <div className="col-md-7">
@@ -45,6 +52,7 @@ const ListHostels = () => {
           hostels={filteredHostels}
           onSearch={(searchResults) => setHostels(searchResults)}
           onSearchFieldChange={(value) => setSearchField(value)}
+          onHostelClick={handleHostelClick}
         />
       </div>
       <div className="col-md-5">
@@ -58,6 +66,24 @@ const ListHostels = () => {
           setShowParking={setShowParking}
           setShowBicycleStorage={setShowBicycleStorage}
         />
+         <div className="reviews-section">
+          <h3>Reviews</h3>
+          {selectedHostel ? (
+            <>
+              <p>Reviews for {selectedHostel.name}</p>
+              <ul>
+                {selectedHostel.reviews.map((review, index) => (
+                  <li key={index}>
+                    <strong>{review.reviewer}:</strong>
+                   <p>{review.review} </p>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <p>Click on a hostel to see its reviews</p>
+          )}
+        </div>
       </div>
     </div>
   );

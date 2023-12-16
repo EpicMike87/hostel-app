@@ -27,6 +27,12 @@ code {
   height: 100vh;
 }
 
+.navigation-section{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
 .nav-button {
   display: inline-block;
   font-weight: bold;
@@ -73,6 +79,7 @@ code {
 
 .hostel-panel{
   margin: 5px;
+  margin-left: 20px;
   min-height: 325px;
 }
 
@@ -91,4 +98,8 @@ code {
 
 .feature-icons{
   width: 25px;
+}
+
+.reviews-section{
+  margin-top: 30px
 }
