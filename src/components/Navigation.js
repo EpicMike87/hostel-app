@@ -18,6 +18,7 @@ const Navigation = () => {
         <Link to="Plan" className="nav-button">
           Plan your Trip
         </Link>
+        <div className = "heading">Alba Adventures</div>
       </div>
       <div className="user-info">
         <UserInfo />
