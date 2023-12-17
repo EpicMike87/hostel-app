@@ -67,8 +67,12 @@ const Map = () => {
           </Marker>
         ))}
       </MapContainer>
-        <div style={{ width: "30%", padding: "20px" }}>
-      <HostelDetails hostel={activeHostel} />
+      <div style={{ width: "30%", padding: "20px" }}>
+        {activeHostel ? (
+          <HostelDetails hostel={activeHostel} />
+        ) : (
+          <p>Select a hostel from the map.</p>
+        )}
       </div>
     </div>
   );

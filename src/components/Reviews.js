@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Search from './Search';
+import StarRating from './StarRating';
+import SubmitReview from './SubmitReview';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { fetchHostelData } from '../services/FetchHostelData';
 
@@ -7,7 +9,8 @@ const Reviews = () => {
   const [hostels, setHostels] = useState([]);
   const [setSearchField] = useState("");
   const [selectedHostel, setSelectedHostel] = useState(null);
-  const [reviewText, setReviewText] = useState(""); // New state for the review text
+  const [reviewText, setReviewText] = useState("");
+  const [selectedRating, setSelectedRating] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,11 +30,12 @@ const Reviews = () => {
     setSelectedHostel(hostel);
   };
 
-  const handleReviewSubmit = () => {
-    // Implement your logic to submit the review
-    console.log("Review submitted:", reviewText);
-    // You can reset the review text after submission if needed
-    setReviewText("");
+  const handleReviewSubmit = async () => {
+    const submissionResult = await SubmitReview(selectedHostel, reviewText, selectedRating);
+    if (submissionResult) {
+      setReviewText("");
+      setSelectedRating(0);
+    }
   };
 
   return (
@@ -50,12 +54,18 @@ const Reviews = () => {
           {selectedHostel ? (
             <>
               <p>{selectedHostel.name}</p>
-              <textarea
+              <StarRating
+                totalStars={5} // Specify the number of stars if needed
+                onRatingChange={setSelectedRating}
+              />
+              <textarea className = 'review-text-box'
                 placeholder="Enter your review..."
                 value={reviewText}
                 onChange={(e) => setReviewText(e.target.value)}
               />
-              <p><button onClick={handleReviewSubmit}>Submit</button></p>
+              <p>
+                <button className="submit-button" onClick={handleReviewSubmit}>Submit</button>
+              </p>
             </>
           ) : (
             <p>Click on a hostel to leave a review</p>
