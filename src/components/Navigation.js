@@ -16,7 +16,10 @@ const Navigation = () => {
           Review a Hostel
         </Link>
         <Link to="Plan" className="nav-button">
-          Plan your Trip
+          Book a Hostel
+        </Link>
+        <Link to="Plan" className="nav-button">
+          View Your Plan
         </Link>
         <div className = "heading">Alba Adventures</div>
       </div>

@@ -19,6 +19,7 @@ function App() {
           <Route key="home" path="/" element={<Home /> } />
           <Route key="search" path="/search" element={<ListHostels />} />
           <Route key="review" path="/review" element={<Reviews />} />
+          <Route key="book" path="/book" element={<Placeholder />} />
           <Route key="plan" path="/plan" element={<Placeholder />} />
           <Route key="account" path="/account" element={<Placeholder />} />
           <Route key="loggedout" path="/loggedout" element={<Placeholder />} />
