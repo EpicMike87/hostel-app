@@ -15,7 +15,7 @@ const Navigation = () => {
         <Link to="Review" className="nav-button">
           Review a Hostel
         </Link>
-        <Link to="Plan" className="nav-button">
+        <Link to="Book" className="nav-button">
           Book a Hostel
         </Link>
         <Link to="Plan" className="nav-button">

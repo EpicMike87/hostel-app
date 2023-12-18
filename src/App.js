@@ -8,6 +8,8 @@ import ListHostels from './components/ListHostels';
 import Placeholder from './components/Placeholder';
 import NoPage from './components/NoPage';
 import Reviews from './components/Reviews';
+import ListItinerary from './components/ListItinerary';
+
 
 function App() {
   return (
@@ -20,7 +22,7 @@ function App() {
           <Route key="search" path="/search" element={<ListHostels />} />
           <Route key="review" path="/review" element={<Reviews />} />
           <Route key="book" path="/book" element={<Placeholder />} />
-          <Route key="plan" path="/plan" element={<Placeholder />} />
+          <Route key="plan" path="/plan" element={<ListItinerary />} />
           <Route key="account" path="/account" element={<Placeholder />} />
           <Route key="loggedout" path="/loggedout" element={<Placeholder />} />
           <Route path="*" element={<NoPage />} />

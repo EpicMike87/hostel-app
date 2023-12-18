@@ -149,3 +149,11 @@ code {
   line-height: 1.5;
   transition: border-color 0.3s ease-in-out;
 }
+
+.itinerary-section{
+  margin: 5px;
+  padding: 20px;
+  margin-left: 20px;
+  min-height: 325px;
+  border: 1px solid black;
+}

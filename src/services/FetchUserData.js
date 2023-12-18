@@ -8,9 +8,9 @@ export const fetchUserData = async () => {
         console.log("API Response:", data)
         return data;
       } else {
-        console.error("Failed to fetch user data");
+        console.error("Failed to fetch users data");
       }
     } catch (error) {
-      console.error("Error fetching user data", error);
+      console.error("Error fetching users data", error);
     }
   };

@@ -1,72 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import Search from './Search';
-import StarRating from './StarRating';
-import SubmitReview from './SubmitReview';
-import "bootstrap/dist/css/bootstrap.min.css";
-import { fetchHostelData } from '../services/FetchHostelData';
+import { fetchItineraryData } from '../services/FetchItineraryData';
 
-const Book = () => {
-  const [hostels, setHostels] = useState([]);
-  const [setSearchField] = useState("");
-  const [selectedHostel, setSelectedHostel] = useState(null);
-  const [reviewText, setReviewText] = useState("");
-  const [selectedRating, setSelectedRating] = useState(0);
+const ShowItinerary = () => {
+  const [itineraries, setItineraries] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchHostelData();
-        setHostels(data);
+        const data = await fetchItineraryData();
+        setItineraries(data);
       } catch (error) {
-        console.error("Error fetching hostels", error);
+        console.error("Error fetching user's itinerary", error);
       }
     };
 
     fetchData();
   }, []);
 
-  const handleHostelClick = (hostel) => {
-    console.log("Hostel clicked:", hostel);
-    setSelectedHostel(hostel);
-  };
-
-  const handleReviewSubmit = async () => {
-    const submissionResult = await SubmitReview(selectedHostel, reviewText, selectedRating);
-    if (submissionResult) {
-      setReviewText("");
-      setSelectedRating(0);
-    }
-  };
-
   return (
-    <div className="row">
-      <div className="col-md-7">
-        <Search
-          hostels={hostels}
-          onSearch={(searchResults) => setHostels(searchResults)}
-          onSearchFieldChange={(value) => setSearchField(value)}
-          onHostelClick={handleHostelClick}
-        />
-      </div>
-      <div className="col-md-5">
-        <div className="book-hostel-section">
-          <h3>Book Hostel</h3>
-          {selectedHostel ? (
-            <>
-              <p>{selectedHostel.name}</p>
-             
-             
-              <p>
-                <button className="submit-button" onClick={handleBookingSubmit}>Submit</button>
-              </p>
-            </>
-          ) : (
-            <p>Click a hostel to book</p>
-          )}
-        </div>
-      </div>
+    <div>
+      <h3>Itinerary</h3>
+      <ul>
+        {itineraries.map((itinerary, index) => (
+          <li key={index}>
+            <strong>User: {itinerary.user}</strong>
+            <p>Hostel: {itinerary.hostel}</p>
+            <p>Start Date: {itinerary.startdate}</p>
+            <p>End Date: {itinerary.enddate}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default Book;
+export default ShowItinerary;
