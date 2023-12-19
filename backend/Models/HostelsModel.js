@@ -1,3 +1,5 @@
+//should probably delete this
+
 //const nedb = require("nedb");
 const nedb = require("gray-nedb");
 

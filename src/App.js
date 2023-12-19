@@ -9,6 +9,7 @@ import Placeholder from './components/Placeholder';
 import NoPage from './components/NoPage';
 import Reviews from './components/Reviews';
 import ListItinerary from './components/ListItinerary';
+import Account from './components/Account';
 import Login from './components/Login';
 
 
@@ -24,7 +25,7 @@ function App() {
           <Route key="review" path="/review" element={<Reviews />} />
           <Route key="book" path="/book" element={<Placeholder />} />
           <Route key="plan" path="/plan" element={<ListItinerary />} />
-          <Route key="account" path="/account" element={<Login />} />
+          <Route key="account" path="/account" element={<Account />} />
           <Route key="loggedout" path="/loggedout" element={<Placeholder />} />
           <Route path="*" element={<NoPage />} />
         </Route>

@@ -5,17 +5,6 @@ exports.newList = function (req, res) {
   menu.init();
   res.redirect("/");
 };
-exports.listMenu = function (req, res) {
-  menu
-    .getAllEntries()
-    .then((list) => {
-      res.json(list);
-     // console.log(list);
-    })
-    .catch((err) => {
-      console.log("promise rejected", err);
-    });
-};
 
 exports.processLogin = function (req, res, next) {
   db.findOne({ username: req.body.username }, { _id: 1 }, function (err, user) {

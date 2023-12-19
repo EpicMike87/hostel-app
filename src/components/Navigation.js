@@ -12,13 +12,13 @@ const Navigation = () => {
         <Link to="search" className="nav-button">
           Find Hostel
         </Link>
-        <Link to="Review" className="nav-button">
+        <Link to="review" className="nav-button">
           Review a Hostel
         </Link>
-        <Link to="Book" className="nav-button">
+        <Link to="book" className="nav-button">
           Book a Hostel
         </Link>
-        <Link to="Plan" className="nav-button">
+        <Link to="plan" className="nav-button">
           View Your Plan
         </Link>
         <div className = "heading">Alba Adventures</div>
