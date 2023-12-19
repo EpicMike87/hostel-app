@@ -1,6 +1,6 @@
 // SubmitReview.js
 
-const SubmitReview = async (selectedHostel, reviewText, selectedRating) => {
+const SubmitReview = async (selectedHostel, reviewText, selectedRating, reviewName) => {
     try {
       if (selectedHostel) {
         const reviewResponse = await fetch(`http://localhost:3002/hostels/review/${selectedHostel.id}`, {
@@ -9,7 +9,7 @@ const SubmitReview = async (selectedHostel, reviewText, selectedRating) => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            reviewer: "User", // Eventually the logged in username will appear here
+            reviewer: reviewName,
             review: reviewText,
           }),
         });

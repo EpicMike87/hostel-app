@@ -10,7 +10,7 @@ import NoPage from './components/NoPage';
 import Reviews from './components/Reviews';
 import ListItinerary from './components/ListItinerary';
 import Account from './components/Account';
-import Login from './components/Login';
+import Book from './components/BookNew';
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
           <Route key="home" path="/" element={<Home /> } />
           <Route key="search" path="/search" element={<ListHostels />} />
           <Route key="review" path="/review" element={<Reviews />} />
-          <Route key="book" path="/book" element={<Placeholder />} />
+          <Route key="book" path="/book" element={<Book />} />
           <Route key="plan" path="/plan" element={<ListItinerary />} />
           <Route key="account" path="/account" element={<Account />} />
           <Route key="loggedout" path="/loggedout" element={<Placeholder />} />

@@ -4,6 +4,7 @@ import StarRating from './StarRating';
 import SubmitReview from './SubmitReview';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { fetchHostelData } from '../services/FetchHostelData';
+import { getStoredUsername } from '../services/ExtractToken';
 
 const Reviews = () => {
   const [hostels, setHostels] = useState([]);
@@ -31,7 +32,8 @@ const Reviews = () => {
   };
 
   const handleReviewSubmit = async () => {
-    const submissionResult = await SubmitReview(selectedHostel, reviewText, selectedRating);
+    const reviewName = getStoredUsername();
+    const submissionResult = await SubmitReview(selectedHostel, reviewText, selectedRating, reviewName);
     if (submissionResult) {
       setReviewText("");
       setSelectedRating(0);
@@ -55,7 +57,7 @@ const Reviews = () => {
             <>
               <p>{selectedHostel.name}</p>
               <StarRating
-                totalStars={5} // Specify the number of stars if needed
+                totalStars={5}
                 onRatingChange={setSelectedRating}
               />
               <textarea className = 'review-text-box'

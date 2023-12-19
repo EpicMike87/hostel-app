@@ -3,7 +3,7 @@ import Login from "./Login";
 import useToken from "./UseToken";
 import { getStoredUsername } from "../services/ExtractToken"
 
-export default function Account() {
+export default function Book() {
   const { token, setToken } = useToken();
   const [username, setUsername] = useState("");
 
