@@ -1,5 +1,3 @@
-const hostelsDAO = require("../models/menuModel");
-const menu = new hostelsDAO({ filename: "menu.db", autoload: true });
 const utils = require("../lib/utils");
 const db = require("../config/users");
 
@@ -17,24 +15,6 @@ exports.listMenu = function (req, res) {
     .catch((err) => {
       console.log("promise rejected", err);
     });
-};
-exports.listOrders = function (req, res) {
-  order
-    .getAllEntries()
-    .then((list) => {
-      res.json(list);
-      //console.log(list);
-    })
-    .catch((err) => {
-      console.log("promise rejected", err);
-    });
-};
-exports.addOrder = function (req, res) {
-  console.log("req body to add to database : ", req.body);
-  order.addEntry(req.body).catch((err) => {
-    console.log("promise rejected", err);
-  });
-  res.redirect("/");
 };
 
 exports.processLogin = function (req, res, next) {

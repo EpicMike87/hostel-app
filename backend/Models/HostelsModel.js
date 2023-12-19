@@ -25,20 +25,5 @@ class Hostels {
     });
   }
 
-  addEntry(order, id) {
-    var entry = {
-      order: order,
-      id: id,
-    };
-    return new Promise((resolve, reject) => {
-      this.order.insert(entry, function (err, doc) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(doc);
-        }
-      });
-    });
-  }
 }
 module.exports = Hostels;

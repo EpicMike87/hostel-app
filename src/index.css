@@ -166,3 +166,9 @@ code {
   background: lightblue;
   grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
 }
+
+.login-wrapper{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
