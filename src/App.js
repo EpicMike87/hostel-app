@@ -10,8 +10,7 @@ import NoPage from './components/NoPage';
 import Reviews from './components/Reviews';
 import ListItinerary from './components/ListItinerary';
 import Account from './components/Account';
-import Book from './components/BookNew';
-
+import Book from './components/Book';
 
 function App() {
   return (
