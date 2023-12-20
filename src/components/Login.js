@@ -33,8 +33,8 @@ export default function Login({ setToken }) {
     localStorage.setItem("username", username);
 
     setToken(token);
-    console.log(token);
-    console.log(username)
+    //console.log(token);
+    //console.log(username)
   };
 
   return (
