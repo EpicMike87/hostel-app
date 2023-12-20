@@ -1,70 +1,92 @@
-import React, { useEffect, useState } from "react";
-import Login from "./Login";
-import useToken from "./UseToken";
-import { getStoredUsername } from "../services/ExtractToken";
+// import React, { useEffect, useState } from "react";
+// import Login from "./Login";
+// import Search from "./Search";
+// import useToken from "./UseToken";
+// import { fetchHostelData } from '../services/FetchHostelData';
+// import { getStoredUsername } from "../services/ExtractToken";
 
-export default function Book() {
-  const { token, setToken } = useToken();
-  const [username, setUsername] = useState("");
-  const [error, setError] = useState(null);
+// const Book = () => {
+//   const { token, setToken } = useToken();
+//   const [username, setUsername] = useState("");
+//   const [selectedHostel, setSelectedHostel] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   const [hostels, setHostels] = useState([]); // Added state for hostels
+//   const [searchField, setSearchField] = useState(""); // Added state for search field
 
-  useEffect(() => {
-    const fetchUsername = async () => {
-      try {
-        const { username: storedUsername} = await getStoredUsername();
-        setUsername(storedUsername);
-      } catch (error) {
-        setError(error.message);
-      }
-    };
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const data = await fetchHostelData();
+//         setHostels(data);
+//       } catch (error) {
+//         setError(error.message);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
 
-    fetchUsername();
-  }, [token]);
+//     fetchData();
+//   }, []);
 
-  if (!token) {
-    return <Login setToken={setToken} />;
-  }
+//   const handleHostelClick = (hostel) => {
+//     console.log("Hostel clicked:", hostel);
+//     // Handle the click action (e.g., navigate to a hostel detail page)
+//   };
 
+//   const handleBookingSubmit = async () => {
+//     const reviewName = getStoredUsername();
+//     const submissionResult = await SubmitBooking(selectedHostel, reviewText, selectedRating, reviewName);
+//     if (submissionResult) {
+//       setReviewText("");
+//       setSelectedRating(0);
+//     }
+//   };
 
+//   // Check if the user is not logged in
+//   if (!token) {
+//     return <Login setToken={setToken} />;
+//   }
 
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
+//   if (loading) {
+//     return <p>Loading...</p>;
+//   }
 
-  return (
-    <div className="row">
-    <div className="col-md-7">
-      <Search
-        hostels={hostels}
-        onSearch={(searchResults) => setHostels(searchResults)}
-        onSearchFieldChange={(value) => setSearchField(value)}
-        onHostelClick={handleHostelClick}
-      />
-    </div>
-    <div className="col-md-5">
-      <div className="leave-review-section">
-        <h3>Review Hostel</h3>
-        {selectedHostel ? (
-          <>
-            <p>{selectedHostel.name}</p>
-            <StarRating
-              totalStars={5}
-              onRatingChange={setSelectedRating}
-            />
-            <textarea className = 'review-text-box'
-              placeholder="Enter your review..."
-              value={reviewText}
-              onChange={(e) => setReviewText(e.target.value)}
-            />
-            <p>
-              <button className="submit-button" onClick={handleReviewSubmit}>Submit</button>
-            </p>
-          </>
-        ) : (
-          <p>Click on a hostel to leave a review</p>
-        )}
-      </div>
-    </div>
-  </div>
-  );
-}
+//   if (error) {
+//     return <p>Error: {error}</p>;
+//   }
+
+//   return (
+//     <div className="row">
+//       {/* Hostel-related functionality */}
+//       <div className="col-md-6">
+//         <Search
+//           hostels={hostels}
+//           onSearch={(searchResults) => setHostels(searchResults)}
+//           onSearchFieldChange={(value) => setSearchField(value)}
+//           onHostelClick={handleHostelClick}
+//         />
+//       </div>
+//       <div className="col-md-5">
+//       <div className="book-hostel-section">
+//           <h3>Book Hostel</h3>
+//           {selectedHostel ? (
+//             <>
+//               <p>{selectedHostel.name}</p>
+//               <p>{selectedHostel.postcode}</p>
+            
+              
+//               <p>
+//                 <button className="submit-button" onClick={handleReviewSubmit}>Submit</button>
+//               </p>
+//             </>
+//           ) : (
+//             <p>Click on a hostel to book</p>
+//           )}
+//         </div>
+//         </div>
+//       </div>
+//   );
+// };
+
+// export default Book;
