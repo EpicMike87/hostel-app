@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import Login from './Login'; // Import your Login component
 import { fetchItineraryData } from '../services/FetchItineraryData';
 import { fetchHostelData } from '../services/FetchHostelData';
 
@@ -9,7 +8,8 @@ const ListItinerary = () => {
   const [itineraries, setItineraries] = useState([]);
   const [hostels, setHostels] = useState([]);
   const [calendarDate, setCalendarDate] = useState(new Date());
-  const [userLoggedIn, setUserLoggedIn] = useState(false); // Track login status
+  const [username, setUsername] = useState(""); // Add state for username
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,9 +22,16 @@ const ListItinerary = () => {
         const hostelsData = await fetchHostelData();
         setHostels(hostelsData);
       } catch (error) {
-        console.error("Error fetching data", error);
+        console.error('Error fetching data', error);
       }
     };
+
+    // Get the username from local storage
+    const storedUsername = localStorage.getItem("username");
+    setUsername(storedUsername || ""); // Set the username or an empty string if not found
+
+    // Set login status
+    setIsLoggedIn(storedUsername && storedUsername !== "Guest");
 
     fetchData();
   }, []);
@@ -35,36 +42,25 @@ const ListItinerary = () => {
     return hostel ? hostel.name : 'Unknown Hostel';
   };
 
-  // Function to filter itineraries for a specific date
-  const getItinerariesForDate = () => {
-    return itineraries.filter((itinerary) => {
-      const itineraryDate = new Date(itinerary.startdate);
-      return (
-        itineraryDate.getDate() === calendarDate.getDate() &&
-        itineraryDate.getMonth() === calendarDate.getMonth() &&
-        itineraryDate.getFullYear() === calendarDate.getFullYear()
-      );
-    });
-  };
-
-  if (!userLoggedIn) {
-    // If user is not logged in, render the Login component
-    return <Login onLogin={() => setUserLoggedIn(true)} />;
-  }
-
   return (
     <div className="row">
       <div className="col-md-4">
-        <h3>My Itinerary for {calendarDate.toDateString()}</h3>
-        <div className="itinerary-section">
-          {getItinerariesForDate().map((itinerary, index) => (
-            <div key={index}>
-              <p>Hostel: {findHostelNameById(itinerary.hostelID)}</p>
-              <p>Check In: {itinerary.startdate}</p>
-              <p>Check Out: {itinerary.enddate}</p>
-            </div>
-          ))}
-        </div>
+        <h3>My Itinerary</h3>
+        {isLoggedIn ? (
+          <div className="itinerary-section">
+            {itineraries
+              .filter((itinerary) => itinerary.userName === username)
+              .map((itinerary, index) => (
+                <div key={index}>
+                  <p>Hostel: {findHostelNameById(itinerary.hostelID)}</p>
+                  <p>Check In: {itinerary.startdate}</p>
+                  <p>Check Out: {itinerary.enddate}</p>
+                </div>
+              ))}
+          </div>
+        ) : (
+          <p>Please log in to view your Itinerary</p>
+        )}
       </div>
       <div className="col-md-4">
         <h3>Calendar</h3>
