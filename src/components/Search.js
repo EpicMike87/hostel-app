@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import HostelDetails from "./HostelDetails";
 
+// Search bar to handle user specified text filtering.
+
 function Search({ hostels, onHostelClick }) {
   const [searchField, setSearchField] = useState("");
 

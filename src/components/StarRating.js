@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Star from "./Star";
 
+// Handle star rating interaction for reviews.
+
 const StarRating = ({ totalStars = 5, onRatingChange }) => {
   const createArray = (length) => [...Array(length)];
   const [selectedStars, setSelectedStars] = useState(0);

@@ -14,6 +14,8 @@ const ListHostels = () => {
 
   const [selectedHostel, setSelectedHostel] = useState(null);
 
+  // Retrieve hostel data.
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,6 +39,8 @@ const ListHostels = () => {
       return matchesCafe && matchesPub && matchesParking && matchesBicycleStorage;
     });
   };
+
+  // Apply user specified filtering to Hostel list.
 
   const filteredHostels = applyFilters();
 

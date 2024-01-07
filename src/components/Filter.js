@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+// Fields for user filtering according to available features.
+
 const Filter = ({
   showCafe,
   showPub,
