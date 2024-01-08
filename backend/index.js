@@ -3,7 +3,6 @@ const cors = require('cors');
 const path = require('path');
 const passport = require('passport');
 
-// Gives  access to variables set in the .env file via `process.env.VARIABLE_NAME` syntax
 require('dotenv').config();
 
 const app = express();

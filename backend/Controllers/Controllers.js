@@ -12,7 +12,6 @@ exports.processLogin = function (req, res, next) {
       res.status(401).json({ success: false, msg: "could not find user" });
     }
     console.log(user);
-    // Function defined at bottom of app.js
     if (user) {
       const isValid = utils.validPassword(
         req.body.password,
@@ -55,6 +54,8 @@ exports.processNewUser = function (req, res, next) {
   });
 };
 
+// This shouldn't be needed but for some reason deleting it breaks the backend.
+
 exports.displayAppData = function (req, res, next) {
   order
     .getAllEntries()
@@ -78,7 +79,6 @@ exports.displayAppData = function (req, res, next) {
           msg: listOrders,
         });
 
-      //console.log(list);
     })
     .catch((err) => {
       console.log("promise rejected", err);

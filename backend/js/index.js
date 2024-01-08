@@ -69,7 +69,6 @@ function logout(){
 
 
 async function getAppData(){
-    //token = document.getElementById("token").innerHTML;
     token = sessionStorage.token;
     const settings = {
         method: 'GET',
@@ -86,9 +85,6 @@ async function getAppData(){
     }
 }
 
-
-
-
 async function saveToken(data){
     const token = data.token;
     document.getElementById("token").innerHTML=token;
@@ -97,14 +93,12 @@ async function saveToken(data){
 
 }
 
-
 async function showAppData(data){
     if(data.msg)
         document.getElementById("appData").innerHTML = data.msg;
     else    
         document.getElementById("appData").innerHTML = data;
 }
-
 
 function showreg(){
     document.getElementById("registration").style.display="block";
@@ -121,7 +115,6 @@ function hidereg(){
 function hidelogin(){
     document.getElementById("login").style.display="none";
 }
-
 
 window.onload = function(){
    
@@ -147,5 +140,4 @@ window.onload = function(){
 
     hidereg();
     hidelogin();
-
 }
