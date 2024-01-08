@@ -32,11 +32,16 @@ const Reviews = () => {
   };
 
   const handleReviewSubmit = async () => {
-    const reviewName = getStoredUsername();
-    const submissionResult = await SubmitReview(selectedHostel, reviewText, selectedRating, reviewName);
-    if (submissionResult) {
-      setReviewText("");
-      setSelectedRating(0);
+    try {
+      const { username } = getStoredUsername();
+      const submissionResult = await SubmitReview(selectedHostel, reviewText, selectedRating, username);
+  
+      if (submissionResult) {
+        setReviewText("");
+        setSelectedRating(0);
+      } 
+    } catch (error) {
+      console.error("Error submitting review:", error);
     }
   };
 
