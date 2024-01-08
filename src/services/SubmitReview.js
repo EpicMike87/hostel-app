@@ -1,3 +1,5 @@
+// SubmitReview.js
+
 const SubmitReview = async (selectedHostel, reviewText, selectedRating, reviewName) => {
     try {
       if (selectedHostel) {

@@ -1,7 +1,5 @@
 const API_URL = "http://localhost:3001";
 
-// Fetches user data an encrypted password from backend server.
-
 export const fetchUserData = async () => {
     try {
       const response = await fetch(`${API_URL}/users`);

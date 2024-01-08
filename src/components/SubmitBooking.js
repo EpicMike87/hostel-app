@@ -3,7 +3,7 @@
 const SubmitBooking = async (selectedHostel, userName, startDate, endDate) => {
   try {
     const bookingResponse = await fetch(`http://localhost:3002/itineraries/new/${userName}`, {
-      method: 'POST',
+      method: 'POST', // Change method to POST
       headers: {
         'Content-Type': 'application/json',
       },

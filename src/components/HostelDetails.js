@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Star from "./Star";
 
-// Display hostel details.
-
 const HostelDetails = ({ hostel }) => {
   const calculateAverageRating = () => {
     if (hostel && hostel.ratings && hostel.ratings.length > 0) {
@@ -13,23 +11,19 @@ const HostelDetails = ({ hostel }) => {
     return 0;
   };
 
-// Hostel contact information pop up.
-
   const averageRating = calculateAverageRating();
   const [showPhonePopup, setShowPhonePopup] = useState(false);
   const [showEmailPopup, setShowEmailPopup] = useState(false);
 
   const togglePhonePopup = () => {
     setShowPhonePopup(!showPhonePopup);
-    setShowEmailPopup(false);
+    setShowEmailPopup(false); // Close the email popup when opening phone popup
   };
 
   const toggleEmailPopup = () => {
     setShowEmailPopup(!showEmailPopup);
-    setShowPhonePopup(false);
+    setShowPhonePopup(false); // Close the phone popup when opening email popup
   };
-
-  // Return the hostel information and display in panel for each instance of Hostel found.
 
   return (
     <div >
@@ -39,6 +33,7 @@ const HostelDetails = ({ hostel }) => {
           <div className = "hostel-title">{hostel.name}</div>
           <div className = "hostel-postcode">{hostel.postcode}</div>
           <div className = "hostel-features">
+          {/* Display icons if feature = true */}
           {hostel.cafe && (
             <div className = "feature-icons">
               <img

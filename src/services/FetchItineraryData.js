@@ -1,7 +1,5 @@
 const API_URL = "http://localhost:3002";
 
-// Fetches the Itinerary data from the data server.
-
 export const fetchItineraryData = async () => {
     try {
       const response = await fetch(`${API_URL}/itineraries`);

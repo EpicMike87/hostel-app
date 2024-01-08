@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Login from "./Login";
-import useToken from "./UseToken";
+import useToken from "../services/UseToken";
 import { getStoredUsername } from "../services/ExtractToken";
 
 export default function Account() {
