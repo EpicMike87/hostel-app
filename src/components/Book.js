@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
 import { fetchHostelData } from '../services/FetchHostelData';
-import SubmitBooking from './SubmitBooking';
+import SubmitBooking from '../services/SubmitBooking';
 
 const Book = () => {
   const [hostels, setHostels] = useState([]);

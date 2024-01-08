@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Search from './Search';
 import StarRating from './StarRating';
-import SubmitReview from './SubmitReview';
 import "bootstrap/dist/css/bootstrap.min.css";
+import SubmitReview from '../services/SubmitReview';
 import { fetchHostelData } from '../services/FetchHostelData';
 import { getStoredUsername } from '../services/ExtractToken';
 
