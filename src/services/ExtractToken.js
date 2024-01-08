@@ -1,7 +1,8 @@
-// Updated getStoredUsername function
 export const getStoredUsername = () => {
   let username;
   let loggedIn;
+
+  // Extract username from local storage if user is logged in. If not found, default to 'Guest'
 
   try {
     username = localStorage.getItem("username");

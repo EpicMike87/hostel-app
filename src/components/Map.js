@@ -15,6 +15,8 @@ const Map = () => {
   const [hostelData, setHostelData] = useState([]);
   const [activeHostel, setActiveHostel] = useState(null);
 
+  // Display Hostel details when marker is selected.
+
   const markerClicked = (position) => {
     setActiveHostel(
       hostelData.find(
@@ -36,6 +38,8 @@ const Map = () => {
     };
     fetchData();
   }, []);
+
+// Display map.
 
   return (
     <div style={{ display: "flex" }}>

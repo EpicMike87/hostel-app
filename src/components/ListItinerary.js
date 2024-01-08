@@ -8,17 +8,17 @@ const ListItinerary = () => {
   const [itineraries, setItineraries] = useState([]);
   const [hostels, setHostels] = useState([]);
   const [calendarDate, setCalendarDate] = useState(new Date());
-  const [username, setUsername] = useState(""); // Add state for username
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
+  const [username, setUsername] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch itinerary data
+        // Fetch itinerary data.
         const itineraryData = await fetchItineraryData();
         setItineraries(itineraryData);
 
-        // Fetch hostel data
+        // Fetch hostel data.
         const hostelsData = await fetchHostelData();
         setHostels(hostelsData);
       } catch (error) {
@@ -28,7 +28,7 @@ const ListItinerary = () => {
 
     // Get the username from local storage
     const storedUsername = localStorage.getItem("username");
-    setUsername(storedUsername || ""); // Set the username or an empty string if not found
+    setUsername(storedUsername || "");
 
     // Set login status
     setIsLoggedIn(storedUsername && storedUsername !== "Guest");
@@ -36,7 +36,7 @@ const ListItinerary = () => {
     fetchData();
   }, []);
 
-  // Function to find hostel name by ID
+  // Function to find hostel name by unique identifier hostelID
   const findHostelNameById = (hostelID) => {
     const hostel = hostels.find((h) => h.id === hostelID);
     return hostel ? hostel.name : 'Unknown Hostel';
