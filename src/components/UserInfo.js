@@ -2,9 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { getStoredUsername } from "../services/ExtractToken";
 
-// User welcome messagea top right of screen.
-// Display logged in info or default 'Guest'.
-
 const UserInfo = () => {
   const { username, loggedIn } = getStoredUsername();
 

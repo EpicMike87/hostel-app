@@ -3,13 +3,13 @@ import Search from './Search';
 import "bootstrap/dist/css/bootstrap.min.css";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { format } from 'date-fns';
+import { format } from 'date-fns'; // Import format from date-fns
 import { fetchHostelData } from '../services/FetchHostelData';
 import SubmitBooking from './SubmitBooking';
 
 const Book = () => {
   const [hostels, setHostels] = useState([]);
-  const [setSearchField] = useState("");
+  const [searchField, setSearchField] = useState("");
   const [selectedHostel, setSelectedHostel] = useState(null);
   const [username, setUsername] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -2,8 +2,6 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import UserInfo from "./UserInfo";
 
-// Navigation bar that sits at the top of all pages.
-
 const Navigation = () => {
   return (
     <div className="navigation-section">

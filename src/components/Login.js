@@ -10,6 +10,9 @@ async function loginUser(credentials) {
     body: JSON.stringify(credentials),
   })
     .then((data) => data.json())
+    // .then(data =>
+    //  {return data.token}
+    // )
 }
 
 export default function Login({ setToken }) {
@@ -23,14 +26,11 @@ export default function Login({ setToken }) {
       password,
     });
 
-    // Save the token to local session storage for authentication.
+    // Save the token to local storage for authentication
     localStorage.setItem("token", token);
 
-    // Save the username to local storage.
+    // Save the username to local storage so the application knows who is logged in
     localStorage.setItem("username", username);
-
-    // Reload the page so that site updates with correct messages.
-    window.location.reload();
 
     setToken(token);
     //console.log(token);

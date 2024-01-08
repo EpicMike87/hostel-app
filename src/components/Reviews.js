@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Search from './Search';
 import StarRating from './StarRating';
-import SubmitReview from '../services/SubmitReview';
+import SubmitReview from './SubmitReview';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { fetchHostelData } from '../services/FetchHostelData';
 import { getStoredUsername } from '../services/ExtractToken';
@@ -12,8 +12,6 @@ const Reviews = () => {
   const [selectedHostel, setSelectedHostel] = useState(null);
   const [reviewText, setReviewText] = useState("");
   const [selectedRating, setSelectedRating] = useState(0);
-
-  // Get hostel data including reviews.
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,16 +32,11 @@ const Reviews = () => {
   };
 
   const handleReviewSubmit = async () => {
-    try {
-      const { username } = getStoredUsername();
-      const submissionResult = await SubmitReview(selectedHostel, reviewText, selectedRating, username);
-  
-      if (submissionResult) {
-        setReviewText("");
-        setSelectedRating(0);
-      } 
-    } catch (error) {
-      console.error("Error submitting review:", error);
+    const reviewName = getStoredUsername();
+    const submissionResult = await SubmitReview(selectedHostel, reviewText, selectedRating, reviewName);
+    if (submissionResult) {
+      setReviewText("");
+      setSelectedRating(0);
     }
   };
 

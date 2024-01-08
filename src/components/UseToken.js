@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-// Extract token from local storage.
-
 export default function useToken() {
     const getToken = () => {
         const tokenString = localStorage.getItem('token')

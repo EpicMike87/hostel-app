@@ -1,7 +1,5 @@
 const API_URL = "http://localhost:3002";
 
-// Fetches the Hostel data from the data server.
-
 export const fetchHostelData = async () => {
     try {
       const response = await fetch(`${API_URL}/hostels`);
