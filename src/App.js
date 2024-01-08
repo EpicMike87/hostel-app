@@ -5,11 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from './components/Home';
 import Navigation from './components/Navigation';
 import ListHostels from './components/ListHostels';
-import Placeholder from './components/Placeholder';
+//import Placeholder from './components/Placeholder';
 import NoPage from './components/NoPage';
 import Reviews from './components/Reviews';
 import ListItinerary from './components/ListItinerary';
 import Account from './components/Account';
+import LoggedOut from './components/LoggedOut';
 import Book from './components/Book';
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
           <Route key="book" path="/book" element={<Book />} />
           <Route key="plan" path="/plan" element={<ListItinerary />} />
           <Route key="account" path="/account" element={<Account />} />
-          <Route key="loggedout" path="/loggedout" element={<Placeholder />} />
+          <Route key="loggedout" path="/loggedout" element={<LoggedOut />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
