@@ -54,8 +54,8 @@ exports.processNewUser = function (req, res, next) {
   });
 };
 
-// This shouldn't be needed but for some reason deleting it breaks the backend.
 
+// This shouldn't be needed but for some reason deleting it breaks the backend.
 exports.displayAppData = function (req, res, next) {
   order
     .getAllEntries()

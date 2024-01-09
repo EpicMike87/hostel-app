@@ -1,5 +1,7 @@
 console.log("in script");
 
+// Most of this code no longer serves a purpose but deleting it introduces issues.
+
 async function registeruser(e) {
     e.preventDefault();
 
