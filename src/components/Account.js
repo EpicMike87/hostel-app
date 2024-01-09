@@ -6,7 +6,6 @@ import { getStoredUsername } from "../services/ExtractToken";
 export default function Account() {
   const { token, setToken } = useToken();
   const [username, setUsername] = useState("");
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -16,8 +15,6 @@ export default function Account() {
         setUsername(storedUsername);
       } catch (error) {
         setError(error.message);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -26,10 +23,6 @@ export default function Account() {
 
   if (!token) {
     return <Login setToken={setToken} />;
-  }
-
-  if (loading) {
-    return <p>Loading...</p>;
   }
 
   if (error) {
