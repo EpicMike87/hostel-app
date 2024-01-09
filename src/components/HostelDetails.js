@@ -17,12 +17,12 @@ const HostelDetails = ({ hostel }) => {
 
   const togglePhonePopup = () => {
     setShowPhonePopup(!showPhonePopup);
-    setShowEmailPopup(false); // Close the email popup when opening phone popup
+    setShowEmailPopup(false);
   };
 
   const toggleEmailPopup = () => {
     setShowEmailPopup(!showEmailPopup);
-    setShowPhonePopup(false); // Close the phone popup when opening email popup
+    setShowPhonePopup(false);
   };
 
   return (
@@ -33,7 +33,6 @@ const HostelDetails = ({ hostel }) => {
           <div className = "hostel-title">{hostel.name}</div>
           <div className = "hostel-postcode">{hostel.postcode}</div>
           <div className = "hostel-features">
-          {/* Display icons if feature = true */}
           {hostel.cafe && (
             <div className = "feature-icons">
               <img

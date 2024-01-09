@@ -19,6 +19,8 @@ export default function Login({ setToken }) {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = await loginUser({
@@ -32,9 +34,10 @@ export default function Login({ setToken }) {
     // Save the username to local storage so the application knows who is logged in
     localStorage.setItem("username", username);
 
+    // Reload the page so that site updates with correct messages.
+    window.location.reload();
+
     setToken(token);
-    //console.log(token);
-    //console.log(username)
   };
 
   return (

@@ -1,4 +1,3 @@
-// Updated getStoredUsername function
 export const getStoredUsername = () => {
   let username;
   let loggedIn;
